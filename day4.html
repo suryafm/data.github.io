@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculator</title>
+    <style>
+        .screen {
+            float: right;
+            width: 200px;
+            padding: 10px;
+            font-size: 24px;
+            margin-bottom: 10px;
+        }
+        .whole {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            grid-gap: 5px;
+        }
+        .whole button {
+            padding: 10px;
+            font-size: 20px;
+            cursor: pointer;
+        }
+        .whole button:nth-child(4n) {
+            grid-column: span 2;
+        }
+    </style>
+</head>
+<body>
+    <h1>CALCULATOR</h1>
+    <div class="whole" id="">
+        <input type="text" id="res" class="screen">
+        <button onclick="solve('1')">1</button>
+        <button onclick="solve('2')">2</button>
+        <button onclick="solve('3')">3</button>
+        <button onclick="solve('+')">+</button>
+        <button onclick="solve('4')">4</button>
+        <button onclick="solve('5')">5</button>
+        <button onclick="solve('6')">6</button>
+        <button onclick="solve('-')">-</button>
+        <button onclick="solve('7')">7</button>
+        <button onclick="solve('8')">8</button>
+        <button onclick="solve('9')">9</button>
+        <button onclick="solve('*')">x</button>
+        <button onclick="solve('0')">0</button>
+        <button onclick="solve('.')">.</button>
+        <button onclick="solve('/')">/</button>
+        <button onclick="solve('%')">%</button>
+        <button onclick="solve('00')">00</button>
+        <button onclick="Clear()">C</button>
+        <button onclick="back()">Back</button>
+        <button onclick="result()">=</button>
+    </div>
+    <script>
+        function solve(val) {
+            var v = document.getElementById('res');
+            v.value += val;
+        }
+
+        function result() {
+            var num1 = document.getElementById('res').value;
+            var num2 = eval(num1);
+            document.getElementById('res').value = num2;
+        }
+
+        function Clear() {
+            var u = document.getElementById('res');
+            u.value = '';
+        }
+
+        function back() {
+            var e = document.getElementById('res');
+            e.value = e.value.slice(0, -1);
+        }
+    </script>
+</body>
+</html>
